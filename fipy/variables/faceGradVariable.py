@@ -58,16 +58,16 @@ class _FaceGradVariable(FaceVariable):
     >>> v2 = CellVariable(mesh=m, value=x**2)
     >>> v.faceGrad.globalValue.shape
     (2, 3, 24)
-    >>> print v0.faceGrad
+    >>> print(v0.faceGrad)
     [[ 0.5  1.   0.5  0.5  1.   0.5  0.5  1.   0.5  0.5  1.   0.5  0.   1.   1.
        0.   0.   1.   1.   0.   0.   1.   1.   0. ]
      [ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
        0.   0.   0.   0.   0.   0.   0.   0.   0. ]]
-    >>> print (v0.faceGrad.globalValue == v.faceGrad.globalValue[:,0]).all()
+    >>> print((v0.faceGrad.globalValue == v.faceGrad.globalValue[:,0]).all())
     True
-    >>> print (v1.faceGrad.globalValue  == v.faceGrad.globalValue[:,1]).all()
+    >>> print((v1.faceGrad.globalValue  == v.faceGrad.globalValue[:,1]).all())
     True
-    >>> print (v2.faceGrad.globalValue  == v.faceGrad.globalValue[:,2]).all()
+    >>> print((v2.faceGrad.globalValue  == v.faceGrad.globalValue[:,2]).all())
     True
 
     """
@@ -183,3 +183,4 @@ def _test():
 
 if __name__ == "__main__":
     _test()
+

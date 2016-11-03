@@ -57,7 +57,7 @@ class _ExponentialConvectionTermAlpha(FaceVariable):
             >>> from fipy.variables.faceVariable import FaceVariable
             >>> P = FaceVariable(mesh = mesh, value = (1e-3, 1e+71, 1e-3, 1e-3))
             >>> alpha = ExponentialConvectionTerm([1])._alpha(P)
-            >>> print alpha
+            >>> print(alpha)
             [ 0.5  1.   0.5  0.5]
 
         """
@@ -95,3 +95,4 @@ def _test():
 
 if __name__ == "__main__":
     _test()
+

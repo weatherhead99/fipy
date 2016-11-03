@@ -120,7 +120,7 @@ class GaussianNoiseVariable(NoiseVariable):
     ...         viewer.plot()
     ...         histoplot.plot()
 
-    >>> print abs(noise.faceGrad.divergence.cellVolumeAverage) < 5e-15
+    >>> print(abs(noise.faceGrad.divergence.cellVolumeAverage) < 5e-15)
     1
 
     Note that the noise exhibits larger amplitude in the small cells than in the large ones
@@ -168,3 +168,4 @@ def _test():
 
 if __name__ == "__main__":
     _test()
+

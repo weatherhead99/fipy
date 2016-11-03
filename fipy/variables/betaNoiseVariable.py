@@ -94,11 +94,11 @@ class BetaNoiseVariable(NoiseVariable):
     ...         beta.value = b
     ...         if __name__ == '__main__':
     ...             import sys
-    ...             print >>sys.stderr, "alpha: %g, beta: %g" % (alpha, beta)
+    ...             print("alpha: %g, beta: %g" % (alpha, beta), file=sys.stderr)
     ...             viewer.plot()
     ...             histoplot.plot()
 
-    >>> print abs(noise.faceGrad.divergence.cellVolumeAverage) < 5e-15
+    >>> print(abs(noise.faceGrad.divergence.cellVolumeAverage) < 5e-15)
     1
 
     .. image:: fipy/variables/beta.*
@@ -134,3 +134,4 @@ def _test():
 
 if __name__ == "__main__":
     _test()
+

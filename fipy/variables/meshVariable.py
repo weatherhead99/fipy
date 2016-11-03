@@ -185,25 +185,25 @@ class _MeshVariable(Variable):
         >>> x, y = m.cellCenters
         >>> v0 = CellVariable(mesh=m)
         >>> v0.constrain(1., where=m.facesLeft)
-        >>> print v0.faceValue.constraintMask
+        >>> print(v0.faceValue.constraintMask)
         [False False False False False False  True False False  True False False]
-        >>> print v0.faceValue
+        >>> print(v0.faceValue)
         [ 0.  0.  0.  0.  0.  0.  1.  0.  0.  1.  0.  0.]
         >>> v0.constrain(3., where=m.facesRight)
-        >>> print v0.faceValue.constraintMask
+        >>> print(v0.faceValue.constraintMask)
         [False False False False False False  True False  True  True False  True]
-        >>> print v0.faceValue
+        >>> print(v0.faceValue)
         [ 0.  0.  0.  0.  0.  0.  1.  0.  3.  1.  0.  3.]
         >>> v1 = CellVariable(mesh=m)
         >>> v1.constrain(1., where=(x < 1) & (y < 1))
-        >>> print v1.constraintMask
+        >>> print(v1.constraintMask)
         [ True False False False]
-        >>> print v1
+        >>> print(v1)
         [ 1.  0.  0.  0.]
         >>> v1.constrain(3., where=(x > 1) & (y > 1))
-        >>> print v1.constraintMask
+        >>> print(v1.constraintMask)
         [ True False False  True]
-        >>> print v1
+        >>> print(v1)
         [ 1.  0.  0.  3.]
 
         """
@@ -233,13 +233,13 @@ class _MeshVariable(Variable):
         >>> from fipy.variables.cellVariable import CellVariable
         >>> mesh = Grid2D(nx=2, ny=3)
         >>> var = CellVariable(mesh=mesh)
-        >>> print numerix.allequal(var.shape, (6,)) # doctest: +PROCESSOR_0
+        >>> print(numerix.allequal(var.shape, (6,))) # doctest: +PROCESSOR_0
         True
-        >>> print numerix.allequal(var.arithmeticFaceValue.shape, (17,)) # doctest: +PROCESSOR_0
+        >>> print(numerix.allequal(var.arithmeticFaceValue.shape, (17,))) # doctest: +PROCESSOR_0
         True
-        >>> print numerix.allequal(var.grad.shape, (2, 6)) # doctest: +PROCESSOR_0
+        >>> print(numerix.allequal(var.grad.shape, (2, 6))) # doctest: +PROCESSOR_0
         True
-        >>> print numerix.allequal(var.faceGrad.shape, (2, 17)) # doctest: +PROCESSOR_0
+        >>> print(numerix.allequal(var.faceGrad.shape, (2, 17))) # doctest: +PROCESSOR_0
         True
 
         Have to account for zero length arrays
@@ -295,28 +295,28 @@ class _MeshVariable(Variable):
         >>> m = Grid2D(nx=2, ny=2)
         >>> v = FaceVariable(mesh=m, rank=1, value=m._orientedFaceNormals)
 
-        >>> print len(v.dot(1.).shape)
+        >>> print(len(v.dot(1.).shape))
         2
-        >>> print v.dot(1.).globalValue.shape
+        >>> print(v.dot(1.).globalValue.shape)
         (2, 12)
         >>> tmp = m._cellDistances * v.dot(1.)
-        >>> print tmp.globalValue.shape
+        >>> print(tmp.globalValue.shape)
         (2, 12)
 
         The value shouldn't change shape the second time it's
         evaluated. The second time is inline and the inline code does
         not have the correct shape.
 
-        >>> print tmp.globalValue.shape
+        >>> print(tmp.globalValue.shape)
         (2, 12)
 
         More inconsistent shape problems.
 
         >>> m = Grid2D(nx=3, ny=3)
         >>> v0 = FaceVariable(mesh=m, rank=1, value=m._orientedFaceNormals)
-        >>> print len(v0.dot(m.faceCenters[0]).shape)
+        >>> print(len(v0.dot(m.faceCenters[0]).shape))
         2
-        >>> print v0.dot(m.faceCenters[0]).globalValue.shape
+        >>> print(v0.dot(m.faceCenters[0]).globalValue.shape)
         (2, 24)
 
         """
@@ -412,7 +412,7 @@ class _MeshVariable(Variable):
         >>> mesh = Grid2D(nx=5, ny=5)
         >>> x, y = mesh.cellCenters
         >>> v = CellVariable(mesh=mesh, value=x*y)
-        >>> print v.min()
+        >>> print(v.min())
         0.25
         """
         if self.mesh.communicator.Nproc > 1 and (axis is None or axis == len(self.shape) - 1):
@@ -651,7 +651,7 @@ def _testDot(self):
 
     >>> def P(a):
     ...     a = a.globalValue
-    ...     print a[...,0], a.shape
+    ...     print(a[...,0], a.shape)
 
     >>> P(v1.dot(v2))
     18 (6,)
@@ -705,3 +705,4 @@ def _test():
 
 if __name__ == "__main__":
     _test()
+
