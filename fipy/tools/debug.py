@@ -7,7 +7,7 @@ def PRINT(label, arg="", stall=True):
 
     for procID in range(parallelComm.Nproc):
         if procID == parallelComm.procID:
-            print >>sys.stderr, parallelComm.procID, label, arg
+            print(parallelComm.procID, label, arg, file=sys.stderr)
         sys.stderr.flush()
         if stall:
             time.sleep(0.1)

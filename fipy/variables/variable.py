@@ -921,7 +921,7 @@ class Variable(object):
                     dim = (nk,nj,ni)
                     argDict['nk'] = nk
                 else:
-                    raise DimensionError, 'Impossible Dimensions'
+                    raise DimensionError('Impossible Dimensions')
 
         ## Following section makes sure that the result array has a
         ## valid typecode. If self._value is None then a typecode is
@@ -1317,7 +1317,7 @@ class Variable(object):
     def __int__(self):
         return int(self.value)
 
-    def __nonzero__(self):
+    def __bool__(self):
         """
             >>> print bool(Variable(value=0))
             0

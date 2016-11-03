@@ -78,7 +78,7 @@ def execButNoTest(name='__main__'):
         raise ValueError("no tests found")
 
     for t in tests:
-        exec t
+        exec(t)
 
 _doctestSkippers = list()
 
@@ -116,9 +116,9 @@ def report_skips():
             skips.append("Skipped %d doctest examples because %s"
                          % (len(skipper.skipped), skipper.why))
     if len(skips) > 0:
-        print >>sys.stderr, "!" * 79
-        print >>sys.stderr, "\n".join(skips)
-        print >>sys.stderr, "!" * 79
+        print("!" * 79, file=sys.stderr)
+        print("\n".join(skips), file=sys.stderr)
+        print("!" * 79, file=sys.stderr)
 
 class _DoctestSkipper:
     def __init__(self, flag, test, why, skipWarning):

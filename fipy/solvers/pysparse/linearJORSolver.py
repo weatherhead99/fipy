@@ -84,4 +84,4 @@ class LinearJORSolver(PysparseSolver):
 
             tol = max(abs(residual))
 
-            print iteration,tol
+            print(iteration,tol)

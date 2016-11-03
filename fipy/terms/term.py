@@ -176,7 +176,7 @@ class Term(object):
                 RHSvector = solver.RHSvector
             self._viewer.plot(matrix=solver.matrix, RHSvector=RHSvector)
             from fipy import raw_input
-            raw_input()
+            input()
 
         return solver
 
@@ -425,7 +425,7 @@ class Term(object):
         elif other == 0:
             return self
         else:
-            raise Exception, "Can only couple Term objects."
+            raise Exception("Can only couple Term objects.")
 
     __rand__ = __and__
 

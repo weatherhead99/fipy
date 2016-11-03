@@ -88,7 +88,7 @@ class LinearLUSolver(PysparseSolver):
 
         if DEBUG:
             import sys
-            print >> sys.stderr, L.matrix
+            print(L.matrix, file=sys.stderr)
 
         error0 = numerix.sqrt(numerix.sum((L * x - b)**2))
 

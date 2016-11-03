@@ -112,7 +112,7 @@ for M in (2, 3):
 import fipy.tools.dump
 import fipy.tools.numerix
 import fipy.tools.vector
-from dimensions.physicalField import PhysicalField
+from .dimensions.physicalField import PhysicalField
 from fipy.tools.numerix import *
 from fipy.tools.vitals import Vitals
 
